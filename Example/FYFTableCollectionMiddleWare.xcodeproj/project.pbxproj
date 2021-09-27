@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FE459DC2701DA3800450E40 /* FYFCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE459D12701DA3700450E40 /* FYFCollectionViewController.m */; };
+		0FE459DD2701DA3800450E40 /* FYFCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE459D32701DA3700450E40 /* FYFCollectionModel.m */; };
+		0FE459DE2701DA3800450E40 /* FYFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE459D42701DA3700450E40 /* FYFTableViewController.m */; };
+		0FE459DF2701DA3800450E40 /* FYFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE459D72701DA3800450E40 /* FYFCollectionViewCell.m */; };
+		0FE459E02701DA3800450E40 /* FYFTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE459D82701DA3800450E40 /* FYFTableModel.m */; };
+		0FE459E12701DA3800450E40 /* FYFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE459DA2701DA3800450E40 /* FYFTableViewCell.m */; };
 		339AE4C3C3C25CEFAE3BB765 /* Pods_FYFTableCollectionMiddleWare_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D61A02C788100E9522C316 /* Pods_FYFTableCollectionMiddleWare_Tests.framework */; };
 		36E9139C75FD1B359734F4DF /* Pods_FYFTableCollectionMiddleWare_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09055E4E06C051AB6F59649 /* Pods_FYFTableCollectionMiddleWare_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -38,6 +44,19 @@
 
 /* Begin PBXFileReference section */
 		0690D00F95923878B18CAC6B /* Pods-FYFTableCollectionMiddleWare_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYFTableCollectionMiddleWare_Example.release.xcconfig"; path = "Target Support Files/Pods-FYFTableCollectionMiddleWare_Example/Pods-FYFTableCollectionMiddleWare_Example.release.xcconfig"; sourceTree = "<group>"; };
+		0FE459D02701DA3700450E40 /* FYFCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYFCollectionModel.h; sourceTree = "<group>"; };
+		0FE459D12701DA3700450E40 /* FYFCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYFCollectionViewController.m; sourceTree = "<group>"; };
+		0FE459D22701DA3700450E40 /* FYFTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYFTableModel.h; sourceTree = "<group>"; };
+		0FE459D32701DA3700450E40 /* FYFCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYFCollectionModel.m; sourceTree = "<group>"; };
+		0FE459D42701DA3700450E40 /* FYFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYFTableViewController.m; sourceTree = "<group>"; };
+		0FE459D52701DA3700450E40 /* FYFCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYFCollectionViewController.h; sourceTree = "<group>"; };
+		0FE459D62701DA3700450E40 /* FYFCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYFCollectionViewCell.h; sourceTree = "<group>"; };
+		0FE459D72701DA3800450E40 /* FYFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYFCollectionViewCell.m; sourceTree = "<group>"; };
+		0FE459D82701DA3800450E40 /* FYFTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYFTableModel.m; sourceTree = "<group>"; };
+		0FE459D92701DA3800450E40 /* FYFTableViewCell */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FYFTableViewCell; sourceTree = "<group>"; };
+		0FE459DA2701DA3800450E40 /* FYFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYFTableViewCell.m; sourceTree = "<group>"; };
+		0FE459DB2701DA3800450E40 /* FYFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYFTableViewController.h; sourceTree = "<group>"; };
+		0FE459E42701DDAF00450E40 /* FYFTableCollectionMiddleWare.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FYFTableCollectionMiddleWare.pch; sourceTree = "<group>"; };
 		1A545A5B7A7B82A618ADAD10 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		31D61A02C788100E9522C316 /* Pods_FYFTableCollectionMiddleWare_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYFTableCollectionMiddleWare_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4431ABFD504E2D3CCDBBE7C9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -134,8 +153,21 @@
 			children = (
 				6003F59C195388D20070C39A /* FYFAppDelegate.h */,
 				6003F59D195388D20070C39A /* FYFAppDelegate.m */,
+				0FE459D02701DA3700450E40 /* FYFCollectionModel.h */,
+				0FE459D32701DA3700450E40 /* FYFCollectionModel.m */,
+				0FE459D62701DA3700450E40 /* FYFCollectionViewCell.h */,
+				0FE459D72701DA3800450E40 /* FYFCollectionViewCell.m */,
+				0FE459D52701DA3700450E40 /* FYFCollectionViewController.h */,
+				0FE459D12701DA3700450E40 /* FYFCollectionViewController.m */,
+				0FE459D22701DA3700450E40 /* FYFTableModel.h */,
+				0FE459D82701DA3800450E40 /* FYFTableModel.m */,
+				0FE459D92701DA3800450E40 /* FYFTableViewCell */,
+				0FE459DA2701DA3800450E40 /* FYFTableViewCell.m */,
+				0FE459DB2701DA3800450E40 /* FYFTableViewController.h */,
+				0FE459D42701DA3700450E40 /* FYFTableViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* FYFViewController.h */,
+				0FE459E42701DDAF00450E40 /* FYFTableCollectionMiddleWare.pch */,
 				6003F5A6195388D20070C39A /* FYFViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -366,9 +398,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE459E02701DA3800450E40 /* FYFTableModel.m in Sources */,
+				0FE459DD2701DA3800450E40 /* FYFCollectionModel.m in Sources */,
+				0FE459DC2701DA3800450E40 /* FYFCollectionViewController.m in Sources */,
+				0FE459E12701DA3800450E40 /* FYFTableViewCell.m in Sources */,
 				6003F59E195388D20070C39A /* FYFAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* FYFViewController.m in Sources */,
+				0FE459DF2701DA3800450E40 /* FYFCollectionViewCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				0FE459DE2701DA3800450E40 /* FYFTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FYFTableCollectionMiddleWare/FYFTableCollectionMiddleWare-Prefix.pch";
+				GCC_PREFIX_HEADER = FYFTableCollectionMiddleWare/FYFTableCollectionMiddleWare.pch;
 				INFOPLIST_FILE = "FYFTableCollectionMiddleWare/FYFTableCollectionMiddleWare-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
@@ -513,7 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FYFTableCollectionMiddleWare/FYFTableCollectionMiddleWare-Prefix.pch";
+				GCC_PREFIX_HEADER = FYFTableCollectionMiddleWare/FYFTableCollectionMiddleWare.pch;
 				INFOPLIST_FILE = "FYFTableCollectionMiddleWare/FYFTableCollectionMiddleWare-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
