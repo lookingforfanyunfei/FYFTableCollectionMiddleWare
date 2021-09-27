@@ -1,10 +1,10 @@
 /*
  #####################################################################
- # File    : KSCollectionViewDataSource.h
- # Project : KSListView
+ # File    : FYFCollectionViewDataSource.h
+ # Project : FYFListView
  # Created : 2021/8/13 1:52 PM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : 去除在middleware里面实现代理的所有代理
  #####################################################################
  ### Change Logs   ###################################################
@@ -19,12 +19,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "KSTableViewDataSource.h"
-#import "KSListData.h"
+#import "FYFTableViewDataSource.h"
+#import "FYFListData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol KSCollectionViewDataSource <NSObject>
+@protocol FYFCollectionViewDataSource <NSObject>
 
 @optional
 

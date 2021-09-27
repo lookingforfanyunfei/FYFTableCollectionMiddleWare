@@ -1,10 +1,10 @@
 /*
  #####################################################################
- # File    : KSListData.m
- # Project : KSListView
+ # File    : FYFListData.m
+ # Project : FYFListView
  # Created : 2021/8/13 1:52 PM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : 列表的每个section的的数据源
  #####################################################################
  ### Change Logs   ###################################################
@@ -18,16 +18,16 @@
  */
 
 
-#import "KSListData.h"
+#import "FYFListData.h"
 
-@interface KSListData() {
+@interface FYFListData() {
     @protected
-    NSMutableArray<id<KSItemModelProtocol>> *_sectionArray;
+    NSMutableArray<id<FYFItemModelProtocol>> *_sectionArray;
 }
 
 @end
 
-@implementation KSListData
+@implementation FYFListData
 
 /// 初始化
 - (instancetype)init {
@@ -42,7 +42,7 @@
     return [[self alloc] init];
 }
 
-// 实现可枚举协议，使KSListData类可以实现for in的方式去遍历
+// 实现可枚举协议，使FYFListData类可以实现for in的方式去遍历
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained _Nullable [_Nonnull])buffer count:(NSUInteger)len {
     return [_sectionArray countByEnumeratingWithState:state objects:buffer count:len];
 }
@@ -54,7 +54,7 @@
 
 /// 添加model
 /// @param model 要添加的model
-- (void)addModel:(id<KSItemModelProtocol>)model {
+- (void)addModel:(id<FYFItemModelProtocol>)model {
     if (model == nil) {
         return;
     }
@@ -63,7 +63,7 @@
 
 /// 添加model数组
 /// @param modelArray 要添加的model数组
-- (void)appendModels:(NSArray<id<KSItemModelProtocol>> *)modelArray {
+- (void)appendModels:(NSArray<id<FYFItemModelProtocol>> *)modelArray {
     if (modelArray == nil || modelArray.count <= 0) {
         return;
     }
@@ -73,7 +73,7 @@
 /// 插入一条model数据
 /// @param model 对应的数据model
 /// @param index 对应的位置
-- (void)insertModel:(id<KSItemModelProtocol>)model atIndex:(NSInteger)index {
+- (void)insertModel:(id<FYFItemModelProtocol>)model atIndex:(NSInteger)index {
     if (model == nil || index < 0 || index >= self.count) {
         return;
     }
@@ -83,7 +83,7 @@
 /// 替换一个数据model在对应的位置
 /// @param index 对应的index
 /// @param model 数据model
-- (void)replaceModelAtIndex:(NSInteger)index newModel:(id<KSItemModelProtocol>)model {
+- (void)replaceModelAtIndex:(NSInteger)index newModel:(id<FYFItemModelProtocol>)model {
     if (model == nil || index < 0 || index >= self.count) {
         return;
     }
@@ -97,7 +97,7 @@
 
 /// 移除对应的数据model
 /// @param model 数据model
-- (void)removeModel:(id<KSItemModelProtocol>)model {
+- (void)removeModel:(id<FYFItemModelProtocol>)model {
     if (model == nil) {
         return;
     }
@@ -115,7 +115,7 @@
 
 /// 获取model
 /// @param index 对应的index
-- (nullable id<KSItemModelProtocol>)modelAtIndex:(NSInteger)index {
+- (nullable id<FYFItemModelProtocol>)modelAtIndex:(NSInteger)index {
     if (index < 0 || index >= self.count) {
         return nil;
     }

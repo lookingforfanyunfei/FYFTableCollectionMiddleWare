@@ -1,10 +1,10 @@
 /*
  #####################################################################
- # File    : KSKSTableMiddleware.m
- # Project : KSListView
+ # File    : KSFYFTableMiddleware.m
+ # Project : FYFListView
  # Created : 2021/8/13 1:52 PM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : UITableView的数据源管理类
  #####################################################################
  ### Change Logs   ###################################################
@@ -17,20 +17,20 @@
  #####################################################################
  */
 
-#import "KSTableMiddleware.h"
+#import "FYFTableMiddleware.h"
 #import <objc/runtime.h>
-#import "KSGetCellClass.h"
+#import "FYFGetCellClass.h"
 
-@interface KSTableMiddleware()
+@interface FYFTableMiddleware()
 
 // 用于缓存注册表
 @property (nonatomic, strong) NSMutableDictionary * cacheRegisterCellDict;
 // tableView的数据源
-@property (nonatomic, strong) NSMutableArray<KSListData *> *tableSource;
+@property (nonatomic, strong) NSMutableArray<FYFListData *> *tableSource;
 
 @end
 
-@implementation KSTableMiddleware
+@implementation FYFTableMiddleware
 
 // section的个数
 - (NSInteger)count {
@@ -39,7 +39,7 @@
 
 /// 添加一个section的数据
 /// @param sectionData section的数据
-- (void)addSectionData:(KSListData *)sectionData {
+- (void)addSectionData:(FYFListData *)sectionData {
     if (sectionData == nil) {
         return;
     }
@@ -48,7 +48,7 @@
 
 /// 获取一个section的数据
 /// @param section section对应的位置
-- (nullable KSListData *)dataOfSection:(NSInteger)section {
+- (nullable FYFListData *)dataOfSection:(NSInteger)section {
     if(section > -1 && section < [self.tableSource count]){
         return self.tableSource[section];
     }
@@ -57,7 +57,7 @@
 
 /// 移除一个section的数据
 /// @param sectionData 对应的section数据
-- (void)removeSectionData:(KSListData *)sectionData {
+- (void)removeSectionData:(FYFListData *)sectionData {
     if (sectionData == nil) {
         return;
     }
@@ -65,7 +65,7 @@
         return;
     }
     // removeObject:会删除所有的空数组元素当sectionData为空数组的时候，所以先获取index之后再删除
-    NSUInteger index = [self.tableSource indexOfObjectPassingTest:^BOOL(KSListData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSUInteger index = [self.tableSource indexOfObjectPassingTest:^BOOL(FYFListData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return obj == sectionData;
     }];
     if (index >= 0 && index < self.tableSource.count) {
@@ -76,7 +76,7 @@
 /// 插入一个section的数据
 /// @param sectionData 要插入的数据
 /// @param section 要插入数据的位置
-- (void)insertSectionData:(KSListData *)sectionData atSection:(NSInteger)section {
+- (void)insertSectionData:(FYFListData *)sectionData atSection:(NSInteger)section {
     if (section < -1 || section >= self.tableSource.count || sectionData == nil) {
         return;
     }
@@ -85,7 +85,7 @@
 
 /// 获取一个section的数据源
 /// @param sectionData 要查找的数据
-- (NSInteger)indexOfSection:(KSListData *)sectionData {
+- (NSInteger)indexOfSection:(FYFListData *)sectionData {
     if (sectionData == nil) {
         return NSNotFound;
     }
@@ -126,9 +126,9 @@
 
 #pragma mark- UITableViewDelegate
 
-- (void)registerHeaderFooterWithModel:(id<KSItemModelProtocol>)model table:(UITableView *)tableView inSection:(NSInteger)section {
+- (void)registerHeaderFooterWithModel:(id<FYFItemModelProtocol>)model table:(UITableView *)tableView inSection:(NSInteger)section {
     NSString *itemClassString = NSStringFromClass(model.itemClass);
-    NSAssert(itemClassString, @"register table header or footer does not implement KSItemModelProtocol!!!");
+    NSAssert(itemClassString, @"register table header or footer does not implement FYFItemModelProtocol!!!");
     if ([self.cacheRegisterCellDict valueForKey:itemClassString] == nil) {
         [tableView registerClass:model.itemClass forHeaderFooterViewReuseIdentifier:kGetHeaderFooterIDWithClass(model.itemClass)];
         [self.cacheRegisterCellDict setValue:model.itemClass forKey:itemClassString];
@@ -136,9 +136,9 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.headerModel;
+    id<FYFItemModelProtocol> model = sectionData.headerModel;
     if (model == nil) {
         return nil;
     }
@@ -153,9 +153,9 @@
     return view;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.footerModel;
+    id<FYFItemModelProtocol> model = sectionData.footerModel;
     if (model == nil) {
         return nil;
     }
@@ -171,9 +171,9 @@
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KSListData *sectionData = [self dataOfSection:indexPath.section];
+    FYFListData *sectionData = [self dataOfSection:indexPath.section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
+    id<FYFItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
     NSAssert(model, @"Array out of bounds!!!");
     NSAssert(model.itemClass, @"Register cell does not implement CellModelProtocol!!!");
     
@@ -202,9 +202,9 @@
     return 44.0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KSListData *sectionData = [self dataOfSection:indexPath.section];
+    FYFListData *sectionData = [self dataOfSection:indexPath.section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
+    id<FYFItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
     NSAssert(model, @"Array out of bounds!!!");
     NSAssert(model.itemClass, @"Register cell does not implement CellModelProtocol!!!");
     
@@ -221,9 +221,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.headerModel;
+    id<FYFItemModelProtocol> model = sectionData.headerModel;
     if (model == nil) {
         return 0.0;
     }
@@ -242,9 +242,9 @@
     return 22.0f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.headerModel;
+    id<FYFItemModelProtocol> model = sectionData.headerModel;
     if (model == nil) {
         return 0.0;
     }
@@ -264,9 +264,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.footerModel;
+    id<FYFItemModelProtocol> model = sectionData.footerModel;
     if (model == nil) {
            return 0.0;
        }
@@ -287,9 +287,9 @@
     return 22.0f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.footerModel;
+    id<FYFItemModelProtocol> model = sectionData.footerModel;
     if (model == nil) {
            return 0.0;
        }
@@ -319,14 +319,14 @@
         NSAssert(NO, @"Array out of bounds!!!");
         return 0;
     }
-    KSListData *sectionData = [self.tableSource objectAtIndex:section];
+    FYFListData *sectionData = [self.tableSource objectAtIndex:section];
     return sectionData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KSListData *sectionData = [self dataOfSection:indexPath.section];
+    FYFListData *sectionData = [self dataOfSection:indexPath.section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
+    id<FYFItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
     NSAssert(model, @"Array out of bounds!!!");
     
     // 缓存注册信息，避免相同model多次注册

@@ -1,10 +1,10 @@
 /*
  #####################################################################
- # File    : KSItemModelProtocol.h
- # Project : KSListView
+ # File    : FYFItemModelProtocol.h
+ # Project : FYFListView
  # Created : 2021/8/13 1:52 PM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : cell关联model协议,cell协议
  #####################################################################
  ### Change Logs   ###################################################
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
     TableSectionFooterType,
 };
 
-@protocol KSItemModelProtocol <NSObject>
+@protocol FYFItemModelProtocol <NSObject>
 
 @property (nonatomic) Class itemClass;
 
@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak) id<KSItemModelProtocol> model;
+@property (nonatomic, weak) id<FYFItemModelProtocol> model;
 
 @optional
 + (CGFloat)estimatedHeightForCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic, assign) NSInteger section;
-@property (nonatomic, weak) id<KSItemModelProtocol> model;
+@property (nonatomic, weak) id<FYFItemModelProtocol> model;
 
 @optional
 + (CGFloat)estimatedHeightForHeaderFooter:(UITableView *)tableView inSection:(NSInteger)section sectionType:(TableSectionViewType)sectionType;
@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak) id<KSItemModelProtocol> model;
+@property (nonatomic, weak) id<FYFItemModelProtocol> model;
 
 
 + (CGSize)sizeForItem:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak) id<KSItemModelProtocol> model;
+@property (nonatomic, weak) id<FYFItemModelProtocol> model;
 
 + (CGSize)sizeForHeaderFooter:(UICollectionView *)collectionView kind:(NSString *)kind section:(NSInteger)section;
 

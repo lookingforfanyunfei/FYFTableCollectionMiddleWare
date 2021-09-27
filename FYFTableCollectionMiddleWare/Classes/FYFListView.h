@@ -1,10 +1,10 @@
 /*
  #####################################################################
- # File    : KSCollectionMiddleware.h
+ # File    : FYFCollectionMiddleware.h
  # Project : TableView
  # Created : 2019/10/25 11:29 AM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : 列表组件的头文件
  #####################################################################
  ### Change Logs   ###################################################
@@ -16,13 +16,13 @@
  #
  #####################################################################
  */
-#ifndef KSListView_h
-#define KSListView_h
+#ifndef FYFListView_h
+#define FYFListView_h
 
 #import "UICollectionView+Middleware.h"
 #import "UITableView+Middleware.h"
-#import "KSItemModelProtocol.h"
-#import "KSListData.h"
-#import "KSGetCellClass.h"
+#import "FYFItemModelProtocol.h"
+#import "FYFListData.h"
+#import "FYFGetCellClass.h"
 
-#endif /* KSListView_h */
+#endif /* FYFListView_h */

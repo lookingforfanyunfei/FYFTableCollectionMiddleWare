@@ -1,10 +1,10 @@
 /*
  #####################################################################
  # File    : KSTableViewDelegate.h
- # Project : KSListView
+ # Project : FYFListView
  # Created : 2021/8/13 1:52 PM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : 去除在middleware里面实现代理的所有代理
  #####################################################################
  ### Change Logs   ###################################################
@@ -22,7 +22,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol KSTableViewDataSource <NSObject>
+@protocol FYFTableViewDataSource <NSObject>
 
 @optional
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different

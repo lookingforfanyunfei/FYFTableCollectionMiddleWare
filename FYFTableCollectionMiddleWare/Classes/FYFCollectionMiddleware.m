@@ -1,10 +1,10 @@
 /*
  #####################################################################
- # File    : KSCollectionMiddleware.m
- # Project : KSListView
+ # File    : FYFCollectionMiddleware.m
+ # Project : FYFListView
  # Created : 2021/8/13 1:52 PM
- # DevTeam : Kingstar Development Team
- # Author  : kingstar
+ # DevTeam : fanyunfei Development Team
+ # Author  : fanyunfei
  # Notes   : UICollectionView的管理类
  #####################################################################
  ### Change Logs   ###################################################
@@ -17,20 +17,20 @@
  #####################################################################
  */
 
-#import "KSCollectionMiddleware.h"
+#import "FYFCollectionMiddleware.h"
 #import <objc/runtime.h>
-#import "KSGetCellClass.h"
+#import "FYFGetCellClass.h"
 
-@interface KSCollectionMiddleware()
+@interface FYFCollectionMiddleware()
 // 缓存注册信息
 @property (nonatomic, strong) NSMutableDictionary * cacheRegisterCellDict;
 // CollectionView的数据源
-@property (nonatomic, strong) NSMutableArray<KSListData *> *collectionSource;
+@property (nonatomic, strong) NSMutableArray<FYFListData *> *collectionSource;
 
 @end
 
 
-@implementation KSCollectionMiddleware
+@implementation FYFCollectionMiddleware
 
 
 // section的总数
@@ -40,7 +40,7 @@
 
 /// 添加一个section的数据
 /// @param sectionData section的数据
-- (void)addSectionData:(KSListData *)sectionData {
+- (void)addSectionData:(FYFListData *)sectionData {
     if (sectionData == nil) {
         return;
     }
@@ -49,7 +49,7 @@
 
 /// 获取一个section的数据
 /// @param section section对应的位置
-- (nullable KSListData *)dataOfSection:(NSInteger)section {
+- (nullable FYFListData *)dataOfSection:(NSInteger)section {
     if(section > -1 && section < [self.collectionSource count]){
         return self.collectionSource[section];
     }
@@ -58,7 +58,7 @@
 
 /// 移除一个section的数据
 /// @param sectionData 对应的section数据
-- (void)removeSectionData:(KSListData *)sectionData {
+- (void)removeSectionData:(FYFListData *)sectionData {
     if (sectionData == nil) {
         return;
     }
@@ -66,7 +66,7 @@
         return;
     }
     // removeObject:会删除所有的空数组元素当sectionData为空数组的时候，所以先获取index之后再删除
-    NSUInteger index = [self.collectionSource indexOfObjectPassingTest:^BOOL(KSListData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSUInteger index = [self.collectionSource indexOfObjectPassingTest:^BOOL(FYFListData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return obj == sectionData;
     }];
     if (index >= 0 && index < self.collectionSource.count) {
@@ -77,7 +77,7 @@
 /// 插入一个section的数据
 /// @param sectionData 要插入的数据
 /// @param section 要插入数据的位置
-- (void)insertSectionData:(KSListData *)sectionData atSection:(NSInteger)section {
+- (void)insertSectionData:(FYFListData *)sectionData atSection:(NSInteger)section {
     if (section < -1 || section >= self.collectionSource.count || sectionData == nil) {
         return;
     }
@@ -119,9 +119,9 @@
 #pragma mark- UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    KSListData *sectionData = [self dataOfSection:indexPath.section];
+    FYFListData *sectionData = [self dataOfSection:indexPath.section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
+    id<FYFItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
     NSAssert(model, @"Array out of bounds!!!");
     NSAssert(model.itemClass, @"Register cell does not implement CellModelProtocol!!!");
     
@@ -137,9 +137,9 @@
     return CGSizeMake(40.0f, 40.0f);
 }
 
-- (UICollectionReusableView<CollectionHeaderFooterProtocol> *)registerHeaderFooterWithModel:(id<KSItemModelProtocol>)model kind:(NSString *)kind table:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionReusableView<CollectionHeaderFooterProtocol> *)registerHeaderFooterWithModel:(id<FYFItemModelProtocol>)model kind:(NSString *)kind table:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     NSString *itemClassString = NSStringFromClass(model.itemClass);
-    NSAssert(itemClassString, @"register collectionView header or footer does not implement KSItemModelProtocol!!!");
+    NSAssert(itemClassString, @"register collectionView header or footer does not implement FYFItemModelProtocol!!!");
     // 注册的话header、footer要分开注册，否则会闪退，所以这边使用两个key来缓存
     itemClassString = [NSString stringWithFormat:@"%@-%@",kind,itemClassString];
     if ([self.cacheRegisterCellDict valueForKey:itemClassString] == nil) {
@@ -155,11 +155,11 @@
     return view;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    KSListData *sectionData = [self dataOfSection:indexPath.section];
+    FYFListData *sectionData = [self dataOfSection:indexPath.section];
     if (sectionData == nil) {
         return nil;
     }
-    id<KSItemModelProtocol> model = kind == UICollectionElementKindSectionHeader ?         sectionData.headerModel : sectionData.footerModel;
+    id<FYFItemModelProtocol> model = kind == UICollectionElementKindSectionHeader ?         sectionData.headerModel : sectionData.footerModel;
     if (model == nil) {
         return nil;
     }
@@ -167,9 +167,9 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.headerModel;
+    id<FYFItemModelProtocol> model = sectionData.headerModel;
     if (model == nil) return CGSizeZero;
     
     SEL heightMethod = @selector(sizeForHeaderFooter:kind:section:);
@@ -184,9 +184,9 @@
     return CGSizeMake(40.0f, 40.0f);
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    KSListData *sectionData = [self dataOfSection:section];
+    FYFListData *sectionData = [self dataOfSection:section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = sectionData.footerModel;
+    id<FYFItemModelProtocol> model = sectionData.footerModel;
     if (model == nil) return CGSizeZero;
     
     SEL heightMethod = @selector(sizeForHeaderFooter:kind:section:);
@@ -211,14 +211,14 @@
         NSAssert(NO, @"Array out of bounds!!!");
         return 0;
     }
-    KSListData *sectionData = [self.collectionSource objectAtIndex:section];
+    FYFListData *sectionData = [self.collectionSource objectAtIndex:section];
     return sectionData.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    KSListData *sectionData = [self dataOfSection:indexPath.section];
+    FYFListData *sectionData = [self dataOfSection:indexPath.section];
     NSAssert(sectionData, @"Array out of bounds!!!");
-    id<KSItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
+    id<FYFItemModelProtocol> model = [sectionData modelAtIndex:indexPath.row];
     NSAssert(model, @"Array out of bounds!!!");
     
     // 缓存注册信息，避免相同model多次注册
