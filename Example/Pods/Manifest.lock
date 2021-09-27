@@ -1,0 +1,16 @@
+PODS:
+  - FYFTableCollectionMiddleWare (0.1.0)
+
+DEPENDENCIES:
+  - FYFTableCollectionMiddleWare (from `../`)
+
+EXTERNAL SOURCES:
+  FYFTableCollectionMiddleWare:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FYFTableCollectionMiddleWare: 78de8dd9bcdb20c2f114a0dcb50b3b536f15b073
+
+PODFILE CHECKSUM: 10f69b8cb68bb047a168ece90705612694fec549
+
+COCOAPODS: 1.10.2

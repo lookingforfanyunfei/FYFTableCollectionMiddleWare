@@ -38,9 +38,9 @@
 
 /* Begin PBXFileReference section */
 		0690D00F95923878B18CAC6B /* Pods-FYFTableCollectionMiddleWare_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYFTableCollectionMiddleWare_Example.release.xcconfig"; path = "Target Support Files/Pods-FYFTableCollectionMiddleWare_Example/Pods-FYFTableCollectionMiddleWare_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1A545A5B7A7B82A618ADAD10 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		1A545A5B7A7B82A618ADAD10 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		31D61A02C788100E9522C316 /* Pods_FYFTableCollectionMiddleWare_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYFTableCollectionMiddleWare_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4431ABFD504E2D3CCDBBE7C9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4431ABFD504E2D3CCDBBE7C9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FYFTableCollectionMiddleWare_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYFTableCollectionMiddleWare_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,7 +65,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A12A7866FED291CE20285796 /* Pods-FYFTableCollectionMiddleWare_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYFTableCollectionMiddleWare_Tests.release.xcconfig"; path = "Target Support Files/Pods-FYFTableCollectionMiddleWare_Tests/Pods-FYFTableCollectionMiddleWare_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C09055E4E06C051AB6F59649 /* Pods_FYFTableCollectionMiddleWare_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FYFTableCollectionMiddleWare_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD54F6645945021EA96252B8 /* FYFTableCollectionMiddleWare.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FYFTableCollectionMiddleWare.podspec; path = ../FYFTableCollectionMiddleWare.podspec; sourceTree = "<group>"; };
+		DD54F6645945021EA96252B8 /* FYFTableCollectionMiddleWare.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FYFTableCollectionMiddleWare.podspec; path = ../FYFTableCollectionMiddleWare.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FB8F03EB5D961E463FBA94C0 /* Pods-FYFTableCollectionMiddleWare_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYFTableCollectionMiddleWare_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FYFTableCollectionMiddleWare_Tests/Pods-FYFTableCollectionMiddleWare_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				FB8F03EB5D961E463FBA94C0 /* Pods-FYFTableCollectionMiddleWare_Tests.debug.xcconfig */,
 				A12A7866FED291CE20285796 /* Pods-FYFTableCollectionMiddleWare_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
