@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FYFCollectionViewCell : UICollectionViewCell<CollectionItemProtocol>
+@interface FYFCollectionViewCell : UICollectionViewCell<FYFCollectionItemProtocol>
 
 @end
 

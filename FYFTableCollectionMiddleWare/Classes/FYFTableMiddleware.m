@@ -145,7 +145,7 @@
     // 注册view,内部会避免多次注册
     [self registerHeaderFooterWithModel:model table:tableView inSection:section];
     // 获取注册view
-    UITableViewHeaderFooterView<TableHeaderFooterProtocol> *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kGetHeaderFooterIDWithClass(model.itemClass)];
+    UITableViewHeaderFooterView<FYFTableHeaderFooterProtocol> *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kGetHeaderFooterIDWithClass(model.itemClass)];
     NSAssert(view, @"table header or footer class has not register!!!");
     view.table = tableView;
     view.section = section;
@@ -163,7 +163,7 @@
     // 注册view,内部会避免多次注册
     [self registerHeaderFooterWithModel:model table:tableView inSection:section];
     // 获取注册view
-    UITableViewHeaderFooterView<TableHeaderFooterProtocol> *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kGetHeaderFooterIDWithClass(model.itemClass)];
+    UITableViewHeaderFooterView<FYFTableHeaderFooterProtocol> *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kGetHeaderFooterIDWithClass(model.itemClass)];
     NSAssert(view, @"table header or footer class has not register!!!");
     view.table = tableView;
     view.section = section;
@@ -233,10 +233,10 @@
     SEL heightMethod = @selector(estimatedHeightForHeaderFooter:inSection:sectionType:);
     Method method =  class_getClassMethod(model.itemClass, heightMethod);
     if(nil != method){
-        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,TableSectionViewType);
+        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,FYFTableSectionViewType);
         heightForHeaderFunc func = (heightForHeaderFunc)method_getImplementation(method);
         if (nil != func) {
-            return func(model.itemClass, heightMethod, tableView, section, TableSectionHeaderType);
+            return func(model.itemClass, heightMethod, tableView, section, FYFTableSectionViewTypeHeader);
         }
     }
     return 22.0f;
@@ -254,10 +254,10 @@
     SEL heightMethod = @selector(heightForHeaderFooter:inSection:sectionType:);
     Method method =  class_getClassMethod(model.itemClass, heightMethod);
     if(nil != method){
-        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,TableSectionViewType);
+        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,FYFTableSectionViewType);
         heightForHeaderFunc func = (heightForHeaderFunc)method_getImplementation(method);
         if (nil != func) {
-            return func(model.itemClass, heightMethod, tableView, section, TableSectionHeaderType);
+            return func(model.itemClass, heightMethod, tableView, section, FYFTableSectionViewTypeHeader);
         }
     }
     return UITableViewAutomaticDimension;
@@ -278,10 +278,10 @@
     SEL heightMethod = @selector(estimatedHeightForHeaderFooter:inSection:sectionType:);
     Method method =  class_getClassMethod(model.itemClass, heightMethod);
     if(nil != method){
-        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,TableSectionViewType);
+        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,FYFTableSectionViewType);
         heightForHeaderFunc func = (heightForHeaderFunc)method_getImplementation(method);
         if (nil != func) {
-            return func(model.itemClass, heightMethod, tableView, section, TableSectionFooterType);
+            return func(model.itemClass, heightMethod, tableView, section, FYFTableSectionViewTypeFooter);
         }
     }
     return 22.0f;
@@ -301,10 +301,10 @@
     SEL heightMethod = @selector(heightForHeaderFooter:inSection:sectionType:);
     Method method =  class_getClassMethod(model.itemClass, heightMethod);
     if(nil != method){
-        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,TableSectionViewType);
+        typedef CGFloat (*heightForHeaderFunc)(Class, SEL, id, NSInteger,FYFTableSectionViewType);
         heightForHeaderFunc func = (heightForHeaderFunc)method_getImplementation(method);
         if (nil != func) {
-            return func(model.itemClass, heightMethod, tableView, section, TableSectionFooterType);
+            return func(model.itemClass, heightMethod, tableView, section, FYFTableSectionViewTypeFooter);
         }
     }
     return UITableViewAutomaticDimension;
@@ -341,7 +341,7 @@
         }
     }
     // 获取注册cell
-    UITableViewCell<TableCellProtocol> *cell;
+    UITableViewCell<FYFTableCellProtocol> *cell;
     if (self.notReuseCell) {
         cell = [tableView dequeueReusableCellWithIdentifier:kGetCellIDWithClassAndIndex(model.itemClass, indexPath)];
     }else{

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FYFTableViewCell : UITableViewCell <TableCellProtocol>
+@interface FYFTableViewCell : UITableViewCell <FYFTableCellProtocol>
 
 @end
 

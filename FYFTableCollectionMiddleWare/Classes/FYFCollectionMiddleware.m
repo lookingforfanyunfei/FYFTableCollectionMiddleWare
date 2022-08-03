@@ -137,7 +137,7 @@
     return CGSizeMake(40.0f, 40.0f);
 }
 
-- (UICollectionReusableView<CollectionHeaderFooterProtocol> *)registerHeaderFooterWithModel:(id<FYFItemModelProtocol>)model kind:(NSString *)kind table:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionReusableView<FYFCollectionHeaderFooterProtocol> *)registerHeaderFooterWithModel:(id<FYFItemModelProtocol>)model kind:(NSString *)kind table:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     NSString *itemClassString = NSStringFromClass(model.itemClass);
     NSAssert(itemClassString, @"register collectionView header or footer does not implement FYFItemModelProtocol!!!");
     // 注册的话header、footer要分开注册，否则会闪退，所以这边使用两个key来缓存
@@ -147,7 +147,7 @@
         [self.cacheRegisterCellDict setValue:model.itemClass forKey:itemClassString];
     }
     // 获取注册ReusableView
-    UICollectionReusableView<CollectionHeaderFooterProtocol> *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kGetHeaderFooterIDWithClass(model.itemClass) forIndexPath:indexPath];
+    UICollectionReusableView<FYFCollectionHeaderFooterProtocol> *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kGetHeaderFooterIDWithClass(model.itemClass) forIndexPath:indexPath];
     NSAssert(view, @"table header or footer class has not register!!!");
     view.collection = collectionView;
     view.indexPath = indexPath;
@@ -229,7 +229,7 @@
         [self.cacheRegisterCellDict setValue:model.itemClass forKey:itemClassString];
     }
     // 获取注册cell
-    UICollectionViewCell<CollectionItemProtocol> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGetCellIDWithClass(model.itemClass) forIndexPath:indexPath];
+    UICollectionViewCell<FYFCollectionItemProtocol> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGetCellIDWithClass(model.itemClass) forIndexPath:indexPath];
     NSAssert(cell, @"cell class has not register!!!");
     
     cell.collection = collectionView;

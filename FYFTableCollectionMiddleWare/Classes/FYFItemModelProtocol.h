@@ -23,9 +23,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger,TableSectionViewType) {
-    TableSectionHeaderType = 0,
-    TableSectionFooterType,
+typedef NS_ENUM(NSInteger,FYFTableSectionViewType) {
+    FYFTableSectionViewTypeHeader = 0,
+    FYFTableSectionViewTypeFooter,
 };
 
 @protocol FYFItemModelProtocol <NSObject>
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 
 @end
 
-@protocol TableCellProtocol <NSObject>
+@protocol FYFTableCellProtocol <NSObject>
 
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic, strong) NSIndexPath *indexPath;
@@ -47,19 +47,19 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 @end
 
 
-@protocol TableHeaderFooterProtocol <NSObject>
+@protocol FYFTableHeaderFooterProtocol <NSObject>
 
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, weak) id<FYFItemModelProtocol> model;
 
 @optional
-+ (CGFloat)estimatedHeightForHeaderFooter:(UITableView *)tableView inSection:(NSInteger)section sectionType:(TableSectionViewType)sectionType;
-+ (CGFloat)heightForHeaderFooter:(UITableView *)tableView inSection:(NSInteger)section sectionType:(TableSectionViewType)sectionType;
++ (CGFloat)estimatedHeightForHeaderFooter:(UITableView *)tableView inSection:(NSInteger)section sectionType:(FYFTableSectionViewType)sectionType;
++ (CGFloat)heightForHeaderFooter:(UITableView *)tableView inSection:(NSInteger)section sectionType:(FYFTableSectionViewType)sectionType;
 @end
 
 
-@protocol CollectionItemProtocol <NSObject>
+@protocol FYFCollectionItemProtocol <NSObject>
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) NSIndexPath *indexPath;
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSInteger,TableSectionViewType) {
 
 @end
 
-@protocol CollectionHeaderFooterProtocol <NSObject>
+@protocol FYFCollectionHeaderFooterProtocol <NSObject>
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) NSIndexPath *indexPath;
