@@ -63,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param sectionData section数据
 - (void)addSectionData:(FYFListData *)sectionData;
 
+/// 添加多个section的数据
+/// @param sectionData section的数据
+- (void)addSectionDatas:(NSArray<FYFListData*>*)sectionDatas;
 
 /// 添加一组数据到最后一个section
 /// @param dataArray 要添加的数组
